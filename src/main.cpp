@@ -25,7 +25,9 @@ class $modify(MyLevelCell, LevelCell) {
 
     void loadCustomLevelCell() {
         LevelCell::loadCustomLevelCell();
-        if(auto levelListLayer = CCScene::get()->getChildByType<LevelListLayer>(0); levelListLayer->m_levelList->m_levels.size() >= Mod::get()->getSettingValue<int64_t>("level-lists-limit")) return;
+        auto levelListLayer = CCScene::get()->getChildByType<LevelListLayer>(0);
+        if(levelListLayer && levelListLayer->m_levelList)
+            if(levelListLayer->m_levelList->m_levels.size() >= Mod::get()->getSettingValue<int64_t>("level-lists-limit")) return;
         if(CCLayerColor* bg = this->getChildByType<CCLayerColor>(0)){
             m_fields->m_background = bg;
             bg->setZOrder(-2);
