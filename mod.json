@@ -32,6 +32,13 @@
             "type": "int",
             "min": 0,
             "default": 50
+        },
+        "level-lists-limit": {
+            "name": "Level Lists Length Limit",
+            "description": "The amount of levels needed in a level list before the mod decides not to load any thumbnails from the level list. Adjust as needed.",
+            "type": "int",
+            "min": 0,
+            "default": 50
         }
     },
 
